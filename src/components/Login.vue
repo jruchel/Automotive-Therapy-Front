@@ -7,31 +7,36 @@
       </div>
       <div class="txt_field">
         <label for="passwordInput">Password: </label><br>
-        <input type="password" v-model="password"  id="passwordInput"><br>
+        <input type="password" v-model="password" id="passwordInput"><br>
       </div>
     </form>
-    <button class="submit-btn" @click="$emit('send-http-request', '/security/login', 'POST', getUser(), respond)"
+    <button class="submit-btn" @click="emit('send-http-request', '/security/login', 'POST', getUser(), respond)"
             v-on:click="clearForm">Login
     </button>
   </div>
 </template>
 
 <script>
+import EventBus from '@/event-bus'
+
 export default {
   name: "Login",
   data() {
     return {
-      username:"kuba",
-      password:"admin"
+      username: "kuba",
+      password: "admin"
     }
   },
   methods: {
+    emit(event, ...args) {
+      EventBus.$emit(event, args)
+    },
+
     clearForm() {
       this.username = ""
       this.password = ""
     },
     getUser() {
-      console.log(this.username)
       return JSON.stringify(
           {
             "username": this.username,
@@ -40,6 +45,7 @@ export default {
       )
     },
     respond(responseText) {
+      console.log(this)
       if (responseText === "true") {
         alert("Login successful!")
       } else {

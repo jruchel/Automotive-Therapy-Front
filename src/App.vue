@@ -1,21 +1,27 @@
 <template>
   <div>
     <HeaderMain class="center"/>
-    <Login v-on:send-http-request="sendRequest"/>
+    <Navigation v-on:send-http-request="sendRequest"></Navigation>
   </div>
 </template>
 
 <script>
 
-import Login from "@/components/Login";
 import HeaderMain from "@/components/Header-Main";
+import Navigation from "@/components/Navigation";
+import EventBus from "@/event-bus";
 
 export default {
   name: 'App',
+  mounted() {
+    EventBus.$on('send-http-request', args => {
+      this.sendRequest(args[0], args[1], args[2], args[3])
+    })
+  },
   provide() {
     return {
       user: {"username": "kuba", "password": "admin1"},
-      serverUrl:  "https://automotive-therapy.herokuapp.com"
+      serverUrl: "https://automotive-therapy.herokuapp.com"
     }
   },
   methods: {
@@ -40,8 +46,8 @@ export default {
   },
 
   components: {
+    Navigation,
     HeaderMain,
-    Login
   }
 }
 </script>
