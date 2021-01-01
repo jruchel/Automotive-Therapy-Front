@@ -3,14 +3,15 @@
     <form method="post">
       <div class="txt_field">
         <label for="usernameInput">Username: </label><br>
-        <input class="input" id="usernameInput" type="text"><br>
+        <input class="input" id="usernameInput" type="text" v-model="username"><br>
       </div>
       <div class="txt_field">
         <label for="passwordInput">Password: </label><br>
-        <input class="input" id="passwordInput" type="password"><br>
+        <input type="password" v-model="password"  id="passwordInput"><br>
       </div>
     </form>
-    <button class="submit-btn" @click="$emit('send-http-request', '/security/login', 'POST', getUser(), respond)">Login
+    <button class="submit-btn" @click="$emit('send-http-request', '/security/login', 'POST', getUser(), respond)"
+            v-on:click="clearForm">Login
     </button>
   </div>
 </template>
@@ -18,14 +19,23 @@
 <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      username:"kuba",
+      password:"admin"
+    }
+  },
   methods: {
+    clearForm() {
+      this.username = ""
+      this.password = ""
+    },
     getUser() {
-      let username = document.getElementById("usernameInput").value
-      let password = document.getElementById("passwordInput").value
+      console.log(this.username)
       return JSON.stringify(
           {
-            "username": username,
-            "password": password
+            "username": this.username,
+            "password": this.password
           }
       )
     },
@@ -41,6 +51,4 @@ export default {
 </script>
 
 <style scoped>
-
-
 </style>
