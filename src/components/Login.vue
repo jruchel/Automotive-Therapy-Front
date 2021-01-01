@@ -10,7 +10,8 @@
         <input class="input" id="passwordInput" type="password"><br>
       </div>
     </form>
-    <button class="submit-btn" v-on:click="login">Login</button>
+    <button class="submit-btn" @click="$emit('send-http-request', '/security/login', 'POST', getUser(), respond)">Login
+    </button>
   </div>
 </template>
 
@@ -18,9 +19,6 @@
 export default {
   name: "Login",
   methods: {
-    login() {
-      this.$parent.$options.methods.sendRequest("/security/login", "POST", this.getUser(), this.respond)
-    },
     getUser() {
       let username = document.getElementById("usernameInput").value
       let password = document.getElementById("passwordInput").value

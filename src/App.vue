@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderMain class="center"/>
-    <Login/>
+    <Login v-on:send-http-request="sendRequest"/>
   </div>
 </template>
 
@@ -12,6 +12,12 @@ import HeaderMain from "@/components/Header-Main";
 
 export default {
   name: 'App',
+  provide() {
+    return {
+      user: {"username": "kuba", "password": "admin1"},
+      serverUrl:  "https://automotive-therapy.herokuapp.com"
+    }
+  },
   methods: {
     serverUrl() {
       return "https://automotive-therapy.herokuapp.com"
