@@ -11,8 +11,5 @@ name: "Header-Main"
 </script>
 
 <style scoped>
-.center {
-  top: 50%;
-  left: 50%;
-}
+
 </style>
