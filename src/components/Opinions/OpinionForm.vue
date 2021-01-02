@@ -15,8 +15,8 @@
       <br>
       <label for="description">Opis: </label><br>
       <textarea id="description" class="descriptionInput" v-model="Opinion.description"></textarea><br>
-      <button @click="onSend">Wyślij</button>
     </form>
+    <button @click="onSend">Wyślij</button>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     },
     processResponse(response) {
       alert(response)
-      this.$forceUpdate()
+      this.$emit("opinion-sent")
     },
     onSend() {
       let validationResult = this.validateInput()

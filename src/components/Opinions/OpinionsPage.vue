@@ -4,7 +4,7 @@
     <table>
       <tr>
           <td v-for="opinion in opinions" v-bind:key="opinion.id">
-            <Opinion :Opinion="opinion"/>
+            <Opinion v-on:opinion-sent="getOpinions" :Opinion="opinion"/>
           </td>
       </tr>
     </table>
