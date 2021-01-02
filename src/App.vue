@@ -13,6 +13,8 @@ import Navigation from "@/components/Navigation";
 import EventBus from "@/event-bus";
 import Footer from "@/components/Footer";
 
+const request = new XMLHttpRequest()
+
 export default {
   name: 'App',
   mounted() {
@@ -53,7 +55,6 @@ export default {
       console.log(this.auth.loggedIn)
     },
     sendRequest(endpoint, method, body, onComplete) {
-      const request = new XMLHttpRequest()
       request.open(method, this.createURL(endpoint))
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       if (body !== null && body !== "") {
@@ -62,7 +63,7 @@ export default {
         request.send()
       }
       request.onreadystatechange = function () {
-        if (request.readyState === 4 && onComplete != null && onComplete !== 'undefined') {
+        if (request.readyState === 4 && onComplete != null && onComplete !== 'undefined' && request.responseText !== '') {
           onComplete(request.responseText)
         }
       }
