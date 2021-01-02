@@ -4,7 +4,7 @@
       <label for="name">Imię: </label><br>
       <input id="name" type="text" v-model="Opinion.name">
       <label for="rating"> Ocena: </label>
-      <select id="rating" name="Ocena">
+      <select id="rating" name="Ocena" v-model="Opinion.stars">
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>

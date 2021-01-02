@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h2>Opinie naszych klientów: </h2><br>
+    <h2 v-if="this.opinions.length > 0">Opinie naszych klientów: </h2><br>
     <table>
       <tr>
           <td v-for="opinion in opinions" v-bind:key="opinion.id">
-            <Opinion v-on:opinion-sent="getOpinions" :Opinion="opinion"/>
+            <Opinion :Opinion="opinion"/>
           </td>
       </tr>
     </table>
     <h2>Wyślij swoją opnię:</h2><br>
-    <OpinionForm/>
+    <OpinionForm v-on:opinion-sent="getOpinions"/>
   </div>
 </template>
 
