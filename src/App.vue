@@ -2,6 +2,7 @@
   <div>
     <HeaderMain class="center"/>
     <Navigation v-on:send-http-request="sendRequest"></Navigation>
+    <Footer/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import HeaderMain from "@/components/Header-Main";
 import Navigation from "@/components/Navigation";
 import EventBus from "@/event-bus";
+import Footer from "@/components/Footer";
 
 export default {
   name: 'App',
@@ -36,7 +38,11 @@ export default {
       const request = new XMLHttpRequest()
       request.open(method, this.createURL(endpoint))
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      request.send(body)
+      if (body !== null && body !== "") {
+        request.send(body)
+      } else {
+        request.send()
+      }
       request.onreadystatechange = function () {
         if (request.readyState === 4) {
           onComplete(request.responseText)
@@ -46,6 +52,7 @@ export default {
   },
 
   components: {
+    Footer,
     Navigation,
     HeaderMain,
   }
