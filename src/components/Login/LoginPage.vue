@@ -10,8 +10,7 @@
         <input type="password" v-model="password" id="passwordInput"><br>
       </div>
     </form>
-    <button class="submit-btn" @click="emit('send-http-request', '/security/login', 'POST', getUser(), respond)"
-            v-on:click="clearForm">Login
+    <button class="submit-btn" @click="emit('send-http-request', '/security/login', 'POST', getUser(), respond)">Login
     </button>
   </div>
 </template>
@@ -31,7 +30,6 @@ export default {
     emit(event, ...args) {
       EventBus.$emit(event, args)
     },
-
     clearForm() {
       this.username = ""
       this.password = ""
@@ -47,7 +45,7 @@ export default {
     respond(responseText) {
       console.log(this)
       if (responseText === "true") {
-        alert("Login successful!")
+        this.emit("login", "1234")
       } else {
         alert("Wrong user details")
       }

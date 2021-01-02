@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="cssProps">
     <label for="name">Nazwa: </label>
     <input id="name" class="nameInput" type="text" readonly="readonly" v-model="Opinion.name">
     <label for="rating"> Ocena: </label>
@@ -14,6 +14,15 @@ export default {
   name: "Opinion",
   mounted() {
     console.log(this.Opinion.stars)
+  },
+  data() {
+    return {
+      cssProps: {
+        backgroundImage: `url(${require('@/assets/border-frame.png')})`,
+        "background-size": "cover",
+        "padding":"5px"
+      }
+    }
   },
   props: {
     Opinion: {
@@ -31,13 +40,15 @@ export default {
 .nameInput {
   width: 50px;
 }
+
 .ratingInput {
   width: 25px;
 }
 
 .descriptionInput {
-  width: 100px;
+  width: 90%;
   height: 100px;
   resize: none;
 }
+
 </style>

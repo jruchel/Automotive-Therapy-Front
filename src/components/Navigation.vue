@@ -1,8 +1,30 @@
 <template>
   <div>
-    <router-link to="/order">Zlecenia</router-link> |
-    <router-link to="/opinion">Opinie</router-link> |
-    <router-link to="/login">Log in</router-link>
+    <table>
+      <tr>
+        <td>
+          <router-link to="/order">Zlecenia</router-link>
+          |
+        </td>
+        <td>
+          <router-link to="/opinion">Opinie</router-link>
+          |
+        </td>
+        <td v-if="!auth.loggedIn">
+          <router-link to="/login">Zaloguj</router-link>
+          |
+        </td>
+        <td v-if="auth.loggedIn">
+          <router-link to="/orders">Zlecenia</router-link>
+          |
+          <router-link to="/home">
+            <span @click="$emit('logout')">Wyloguj</span>
+          </router-link>
+          |
+        </td>
+      </tr>
+    </table>
+    <br>
     <router-view/>
   </div>
 </template>
@@ -10,6 +32,7 @@
 <script>
 export default {
   name: "Navigation",
+  inject: ["auth"],
 }
 </script>
 
