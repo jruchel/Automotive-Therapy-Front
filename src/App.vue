@@ -52,11 +52,14 @@ export default {
     processLogin(token) {
       this.auth.loggedIn = true
       this.auth.token = token
-      console.log(this.auth.loggedIn)
     },
     sendRequest(endpoint, method, body, onComplete) {
       request.open(method, this.createURL(endpoint))
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      if (this.auth.loggedIn) {
+        console.log(this.auth.token)
+        request.setRequestHeader("auth", this.auth.token)
+      }
       if (body !== null && body !== "") {
         request.send(body)
       } else {

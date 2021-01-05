@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="this.auth.loggedIn" id="loggedin">
-      <ul v-for="client in clients" v-bind:key="client.id">
-        <li>{{ client }}</li>
-      </ul>
+      <div v-for="client in clients" v-bind:key="client.id">
+        <Client :Client="client"/>
+      </div>
     </div>
     <NotLoggedIn v-if="!this.auth.loggedIn"/>
   </div>
@@ -13,10 +13,11 @@
 
 import EventBus from "@/event-bus";
 import NotLoggedIn from "@/components/Login/NotLoggedIn";
+import Client from "@/components/Moderator/Client";
 
 export default {
   name: "RespondOrders",
-  components: {NotLoggedIn},
+  components: {Client, NotLoggedIn},
   mounted() {
     this.getUnrespondedOrders()
   },
@@ -37,8 +38,7 @@ export default {
       this.emit("send-http-request", "/moderator/clients/uncompleted", "GET", "", this.setCurrentClients)
     },
     setCurrentClients(response) {
-      this.clients = []
-      this.clients.push(JSON.parse(response))
+      this.clients = JSON.parse(response)
     }
   }
 }

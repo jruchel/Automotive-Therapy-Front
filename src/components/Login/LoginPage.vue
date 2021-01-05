@@ -10,7 +10,8 @@
         <input type="password" v-model="password" id="passwordInput"><br>
       </div>
     </form>
-    <button class="submit-btn" @click="emit('send-http-request', '/security/login', 'POST', getUser(), respond)">Login
+    <button class="submit-btn" @click="emit('send-http-request', '/security/authenticate', 'POST', getUser(), respond)">
+      Login
     </button>
   </div>
 </template>
@@ -43,11 +44,10 @@ export default {
       )
     },
     respond(responseText) {
-      console.log(this)
-      if (responseText === "true") {
-        this.emit("login", "1234")
+      if (responseText.startsWith("token:")) {
+        this.emit('login', responseText.substring(responseText.indexOf(":") + 1))
       } else {
-        alert("Wrong user details")
+        alert(responseText)
       }
     }
   }
