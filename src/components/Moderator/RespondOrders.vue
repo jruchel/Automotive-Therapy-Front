@@ -1,20 +1,26 @@
 <template>
   <div>
-    <ul v-for="client in clients" v-bind:key="client.id">
-      <li>{{client}}</li>
-    </ul>
+    <div v-if="this.auth.loggedIn" id="loggedin">
+      <ul v-for="client in clients" v-bind:key="client.id">
+        <li>{{ client }}</li>
+      </ul>
+    </div>
+    <NotLoggedIn v-if="!this.auth.loggedIn"/>
   </div>
 </template>
 
 <script>
 
 import EventBus from "@/event-bus";
+import NotLoggedIn from "@/components/Login/NotLoggedIn";
 
 export default {
   name: "RespondOrders",
+  components: {NotLoggedIn},
   mounted() {
     this.getUnrespondedOrders()
   },
+  inject: ["auth"],
   data() {
     return {
       clients: []
