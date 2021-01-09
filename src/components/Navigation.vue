@@ -11,7 +11,7 @@
           |
         </td>
         <td v-if="!auth.loggedIn">
-          <router-link to="/login">Zaloguj</router-link>
+          <router-link to="/login">Dla pracowników</router-link>
           |
         </td>
         <td v-if="auth.loggedIn">

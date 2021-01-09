@@ -1,12 +1,13 @@
 <template>
   <div class="content">
+    <h3>Zaloguj się</h3>
     <form method="post">
       <div class="txt_field">
-        <label for="usernameInput">Username: </label><br>
+        <label for="usernameInput">Nazwa użytkownika: </label><br>
         <input class="input" id="usernameInput" type="text" v-model="username"><br>
       </div>
       <div class="txt_field">
-        <label for="passwordInput">Password: </label><br>
+        <label for="passwordInput">Hasło: </label><br>
         <input type="password" v-model="password" id="passwordInput"><br>
       </div>
     </form>

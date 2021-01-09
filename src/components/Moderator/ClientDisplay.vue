@@ -60,10 +60,7 @@ export default {
       EventBus.$emit(event, args)
     },
     handleOrder(order, endpoint) {
-      this.emit("send-http-request", endpoint, "POST", order.id, function (response) {
-        console.log(response)
-      })
-      this.refreshOrders()
+      this.emit("send-http-request", endpoint, "POST", order.id,  this.refreshOrders)
     },
     getOrders(fun) {
       return this.Client.orders.filter(fun)
