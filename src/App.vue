@@ -1,8 +1,8 @@
 <template>
   <div>
-    <HeaderMain class="center"/>
-    <Navigation v-on:logout="logout"></Navigation>
-    <Footer/>
+    <HeaderMain class="content"/>
+    <Navigation class="content" v-on:logout="logout"></Navigation>
+    <Footer class="content"/>
   </div>
 </template>
 
@@ -57,17 +57,23 @@ export default {
       request.open(method, this.createURL(endpoint))
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       if (this.auth.loggedIn) {
-        console.log(this.auth.token)
         request.setRequestHeader("auth", this.auth.token)
       }
       if (body !== null && body !== "") {
+        if(endpoint === '') {
+          console.log(endpoint)
+          console.log(method)
+          console.log(body)
+        }
         request.send(body)
       } else {
         request.send()
       }
+      let read = false
       request.onreadystatechange = function () {
-        if (request.readyState === 4 && onComplete != null && onComplete !== 'undefined' && request.responseText !== '') {
+        if (request.readyState === 4 && onComplete != null && onComplete !== 'undefined' && request.responseText !== '' && !read) {
           onComplete(request.responseText)
+          read = true
         }
       }
     }
@@ -82,5 +88,8 @@ export default {
 </script>
 
 <style>
-
+.content {
+  max-width: 500px;
+  margin: auto;
+}
 </style>

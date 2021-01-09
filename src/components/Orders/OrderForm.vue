@@ -4,11 +4,11 @@
       <label for="emailInput">Adres email:</label><br>
       <input id="emailInput" type="text" v-model="Client.email"/><br>
       <label for="phoneInput">Podaj numer telefonu(opcjonalne):</label><br>
-      <input id="phoneInput" type="number" v-model="Client.phone"/><br>
+      <input id="phoneInput" type="number" v-model="Client.phoneNumber"/><br>
       <label for="descriptionInput">Opisz swoje zlecenie (model pojazdu, co się zepsuło itd.):</label><br>
       <textarea class="descriptionInput" id="descriptionInput" v-model="Order.description"></textarea><br>
-      <button @click="sendForm">Wyślij</button>
     </form>
+    <button @click="sendForm">Wyślij</button>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     },
     validateForm() {
       let email = this.Client.email
-      let phone = this.Client.phone
+      let phone = this.Client.phoneNumber
       let descritpion = this.Order.description
       if (email === "" || email === null) {
         return "Email nie może być pusty."
@@ -48,6 +48,7 @@ export default {
       }
     },
     processResponse(response) {
+      console.log(response)
       alert(response)
     },
     getData() {
@@ -61,7 +62,7 @@ export default {
     return {
       Client: {
         email: "",
-        phone: "",
+        phoneNumber: "",
         newsletter: false
       },
       Order: {
