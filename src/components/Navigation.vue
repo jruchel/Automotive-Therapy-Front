@@ -4,10 +4,10 @@
       <router-link v-bind:class="{'active': isOrder}" to="/order">Zlecenia</router-link>
       <router-link v-bind:class="{'active': isOpinion}" to="/opinion">Opinie</router-link>
       <router-link v-bind:class="{'active': isLogin}" v-if="!auth.loggedIn" to="/login">Dla pracowników</router-link>
-      <router-link v-bind:class="{'active': isOrders}" v-if="auth.loggedIn" to="/orders">Zlecenia</router-link>
-      <router-link v-if="auth.loggedIn" to="/home">
-        <span @click="$emit('logout')">Wyloguj</span>
-      </router-link>
+     <div v-if="auth.loggedIn">
+       <router-link v-bind:class="{'active': isOrders}" to="/orders">Zlecenia</router-link>
+       <router-link to="/home" v-on:click.native="$emit('logout')">Wyloguj</router-link>
+     </div>
     </div>
     <br>
     <router-view/>

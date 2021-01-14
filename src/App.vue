@@ -89,13 +89,9 @@ body {
   background-size: cover;
 }
 
-select {
-  font-family: Hack, monospace;
-  outline: none;
-}
-
 * {
   font-family: Hack, monospace;
+  outline: none;
 }
 
 input {
@@ -103,7 +99,6 @@ input {
   padding:15px;
   border-radius:10px;
   border: 0;
-  outline: none;
 }
 textarea {
   width:100%;
@@ -113,7 +108,6 @@ textarea {
   border:0;
   box-shadow:4px 4px 10px rgba(0,0,0,0.06);
   height:150px;
-  outline: none;
 }
 
 button{
