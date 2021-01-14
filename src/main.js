@@ -15,7 +15,7 @@ const routes = [
     {path: '/order', component: Order},
     {path: '/login', component: Login},
     {path: '/orders', component: RespondOrders},
-    {path: "/home", component: LandingPage}
+    {path: "/home", component: LandingPage, alias: ['/', '']}
 ]
 
 const router = new Router({
