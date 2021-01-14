@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "LandingPage"
+  name: "LandingPage",
+
 }
 </script>
 

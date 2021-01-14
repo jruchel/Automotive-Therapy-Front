@@ -4,7 +4,7 @@
     <form method="post">
       <div class="txt_field">
         <label for="usernameInput">Nazwa użytkownika: </label><br>
-        <input class="input" id="usernameInput" type="text" v-model="username"><br>
+        <input class="w3" id="usernameInput" type="text" v-model="username"><br>
       </div>
       <div class="txt_field">
         <label for="passwordInput">Hasło: </label><br>
@@ -22,6 +22,9 @@ import EventBus from '@/event-bus'
 
 export default {
   name: "Login",
+  mounted() {
+    this.emit('mounted', 'login')
+  },
   data() {
     return {
       username: "kuba",

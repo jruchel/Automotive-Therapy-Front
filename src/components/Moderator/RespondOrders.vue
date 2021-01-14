@@ -24,6 +24,7 @@ export default {
   components: {ClientDisplay: ClientDisplay, NotLoggedIn},
   mounted() {
     this.getOrders()
+    this.emit('mounted', 'orders')
   },
   inject: ["auth"],
   data() {

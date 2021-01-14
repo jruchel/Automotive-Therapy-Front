@@ -2,7 +2,6 @@
   <div>
     <HeaderMain class="content"/>
     <Navigation class="content" v-on:logout="logout"></Navigation>
-    <Footer class="content"/>
   </div>
 </template>
 
@@ -11,12 +10,14 @@
 import HeaderMain from "@/components/Header-Main";
 import Navigation from "@/components/Navigation";
 import EventBus from "@/event-bus";
-import Footer from "@/components/Footer";
 
 
 export default {
   name: 'App',
   mounted() {
+    EventBus.$on('mounted', args => {
+      this.$children[1].setCurrentPage(args[0])
+    })
     EventBus.$on('send-http-request', args => {
       this.sendRequest(args[0], args[1], args[2], args[3])
     })
@@ -27,12 +28,12 @@ export default {
   provide() {
     return {
       auth: this.auth,
-      serverUrl: "https://automotive-therapy.herokuapp.com"
+      serverUrl: "https://automotive-therapy.herokuapp.com",
     }
   },
   data() {
     return {
-      auth: {loggedIn: false, token: "12345"}
+      auth: {loggedIn: false, token: "12345"},
     }
   },
   methods: {
@@ -69,9 +70,7 @@ export default {
       }
     }
   },
-
   components: {
-    Footer,
     Navigation,
     HeaderMain,
   }
@@ -79,6 +78,54 @@ export default {
 </script>
 
 <style>
+body, html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+body {
+  background-image: url(assets/background.jpg);
+  background-size: cover;
+}
+
+select {
+  font-family: Hack, monospace;
+  outline: none;
+}
+
+* {
+  font-family: Hack, monospace;
+}
+
+input {
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  padding:15px;
+  border-radius:10px;
+  border: 0;
+  outline: none;
+}
+textarea {
+  width:100%;
+  resize: vertical;
+  padding:15px;
+  border-radius:15px;
+  border:0;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  height:150px;
+  outline: none;
+}
+
+button{
+  background: royalblue;
+  width: 80px;
+  height: 35px;
+  color: #ffffff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+}
+
 .content {
   max-width: 500px;
   margin: auto;
