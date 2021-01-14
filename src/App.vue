@@ -84,6 +84,7 @@ body, html {
   width: 100%;
   min-height: 100vh;
 }
+
 body {
   background-image: url(assets/background.jpg);
   background-size: cover;
@@ -95,22 +96,23 @@ body {
 }
 
 input {
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-  padding:15px;
-  border-radius:10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 15px;
+  border-radius: 10px;
   border: 0;
 }
+
 textarea {
-  width:100%;
+  width: 100%;
   resize: vertical;
-  padding:15px;
-  border-radius:15px;
-  border:0;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-  height:150px;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  height: 150px;
 }
 
-button{
+button {
   background: royalblue;
   width: 80px;
   height: 35px;
@@ -118,6 +120,7 @@ button{
   cursor: pointer;
   border: 0;
   border-radius: 10px;
+  margin: 5px 5px 5px 0px;
 }
 
 .content {

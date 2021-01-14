@@ -5,8 +5,13 @@
         <option value="pending">Nieodczytane</option>
         <option value="accepted">Nieukończone</option>
       </select>
-      <div v-for="client in clients" v-bind:key="client.id">
-        <ClientDisplay v-on:orders-refresh="getOrders" :Client="client" :status="selectedOption"/>
+      <div v-if="clients.length <= 0">
+        <h3>Brak zleceń</h3>
+      </div>
+      <div v-if="clients.length > 0">
+        <div v-for="client in clients" v-bind:key="client.id">
+          <ClientDisplay v-on:orders-refresh="getOrders" :Client="client" :status="selectedOption"/>
+        </div>
       </div>
     </div>
     <NotLoggedIn v-if="!this.auth.loggedIn"/>
