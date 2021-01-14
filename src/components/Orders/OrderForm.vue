@@ -48,7 +48,6 @@ export default {
       }
     },
     processResponse(response) {
-      console.log(response)
       alert(response)
     },
     getData() {

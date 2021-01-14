@@ -13,7 +13,6 @@ import Navigation from "@/components/Navigation";
 import EventBus from "@/event-bus";
 import Footer from "@/components/Footer";
 
-const request = new XMLHttpRequest()
 
 export default {
   name: 'App',
@@ -28,7 +27,6 @@ export default {
   provide() {
     return {
       auth: this.auth,
-      user: {"username": "kuba", "password": "admin1"},
       serverUrl: "https://automotive-therapy.herokuapp.com"
     }
   },
@@ -54,21 +52,14 @@ export default {
       this.auth.token = token
     },
     sendRequest(endpoint, method, body, onComplete) {
+      let request = new XMLHttpRequest()
       request.open(method, this.createURL(endpoint))
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       if (this.auth.loggedIn) {
         request.setRequestHeader("auth", this.auth.token)
       }
-      if (body !== null && body !== "") {
-        if(endpoint === '') {
-          console.log(endpoint)
-          console.log(method)
-          console.log(body)
-        }
-        request.send(body)
-      } else {
-        request.send()
-      }
+      request.send(body)
+
       let read = false
       request.onreadystatechange = function () {
         if (request.readyState === 4 && onComplete != null && onComplete !== 'undefined' && request.responseText !== '' && !read) {

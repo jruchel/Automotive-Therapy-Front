@@ -8,7 +8,7 @@
           </td>
       </tr>
     </table>
-    <h2>Wyślij swoją opnię:</h2><br>
+    <h2>Wyślij swoją opinię:</h2><br>
     <OpinionForm v-on:opinion-sent="getOpinions"/>
   </div>
 </template>
