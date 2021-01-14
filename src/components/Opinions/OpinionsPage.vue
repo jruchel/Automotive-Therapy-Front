@@ -4,7 +4,7 @@
     <table>
       <tr>
         <td v-for="opinion in opinions" v-bind:key="opinion.id">
-          <Opinion :Opinion="opinion"/>
+          <Opinion class="opinion" :Opinion="opinion"/>
         </td>
       </tr>
     </table>
@@ -45,5 +45,9 @@ export default {
 </script>
 
 <style scoped>
+.opinion {
+  margin: 10px 10px 10px 10px;
+  width: 175px;
 
+}
 </style>
