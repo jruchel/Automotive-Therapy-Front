@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div style="text-align: center">
     <div v-if="!auth.loggedIn">
       <h3>Zaloguj się</h3>
       <form method="post">

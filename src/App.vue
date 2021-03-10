@@ -1,13 +1,13 @@
 <template>
   <div>
-    <HeaderMain class="content"/>
+    <Footer class="content"/>
     <Navigation class="content" v-on:logout="logout"></Navigation>
   </div>
 </template>
 
 <script>
 
-import HeaderMain from "@/components/Header-Main";
+import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import EventBus from "@/event-bus";
 
@@ -72,7 +72,7 @@ export default {
   },
   components: {
     Navigation,
-    HeaderMain,
+    Footer,
   }
 }
 </script>

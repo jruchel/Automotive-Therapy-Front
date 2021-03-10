@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 v-if="this.opinions.length > 0">Opinie naszych klientów: </h2><br>
+    <h2 style="text-align: center" v-if="this.opinions.length > 0">Opinie naszych klientów: </h2><br>
     <table>
       <tr>
         <td v-for="opinion in opinions" v-bind:key="opinion.id">
@@ -8,7 +8,7 @@
         </td>
       </tr>
     </table>
-    <h2>Wyślij swoją opinię:</h2><br>
+    <h2 style="text-align: center">Wyślij swoją opinię:</h2><br>
     <OpinionForm v-on:opinion-sent="getOpinions"/>
   </div>
 </template>
