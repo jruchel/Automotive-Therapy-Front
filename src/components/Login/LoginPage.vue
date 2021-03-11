@@ -33,8 +33,8 @@ export default {
   },
   data() {
     return {
-      username: "kuba",
-      password: "admin"
+      username: "admin",
+      password: "admin1"
     }
   },
   methods: {

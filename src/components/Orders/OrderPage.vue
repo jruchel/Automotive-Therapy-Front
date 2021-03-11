@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 style="text-align: center">Złóż zamówienie</h1>
+    <h2 style="text-align: center">Złóż zamówienie</h2>
     <OrderForm/>
   </div>
 </template>
