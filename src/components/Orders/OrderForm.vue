@@ -75,8 +75,8 @@ export default {
 <style scoped>
 
 .descriptionInput {
-  width: 500px;
-  height: 200px;
+  width: 30%;
+  height: 150px;
   resize: none;
 }
 
