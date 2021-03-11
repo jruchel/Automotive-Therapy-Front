@@ -1,13 +1,14 @@
 <template>
   <div>
     <div id="topnav" class="topnav">
-      <router-link v-bind:class="{'active': isOrder}" to="/order">Zlecenia</router-link>
-      <router-link v-bind:class="{'active': isOpinion}" to="/opinion">Opinie</router-link>
-      <router-link v-bind:class="{'active': isLogin}" v-if="!auth.loggedIn" to="/login">Dla pracowników</router-link>
-     <div v-if="auth.loggedIn">
-       <router-link v-bind:class="{'active': isOrders}" to="/orders">Zlecenia</router-link>
-       <router-link to="/home" v-on:click.native="$emit('logout')">Wyloguj</router-link>
-     </div>
+      <router-link :class="{active: isOrder}" to="/order">Zlecenia</router-link>
+      <router-link :class="{active: isOpinion}" to="/opinion">Opinie</router-link>
+      <router-link :class="{active: isLogin}" v-if="!auth.loggedIn" to="/login">Dla pracowników</router-link>
+       <router-link v-if="auth.loggedIn" :class="{active: isOrders}" to="/orders">Zlecenia</router-link>
+       <router-link v-if="auth.loggedIn" to="/home" v-on:click.native="$emit('logout')">Wyloguj</router-link>
+      <div class="contact">
+        <a href="https://github.com/jruchel" >Github</a>
+      </div>
     </div>
     <br>
     <router-view/>
@@ -17,7 +18,7 @@
 <script>
 export default {
   name: "Navigation",
-  inject: ["auth"],
+  inject: ["auth", "images"],
   methods: {
     setCurrentPage(page) {
       this.clearAll()
@@ -62,6 +63,11 @@ export default {
   overflow: hidden;
 }
 
+
+.contact{
+  float: right;
+}
+
 .topnav a {
   float: left;
   color: whitesmoke;
@@ -78,7 +84,7 @@ export default {
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.active {
   background-color: black;
   color: whitesmoke;
 }

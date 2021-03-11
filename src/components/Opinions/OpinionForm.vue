@@ -2,7 +2,7 @@
   <div>
     <form>
       <label for="name">Imię: </label><br>
-      <input id="name" type="text" v-model="Opinion.name">
+      <input id="name" type="text" v-model="Opinion.name"><br><br>
       <label for="rating"> Ocena: </label>
       <select id="rating" name="Ocena" v-model="Opinion.stars">
         <option value="5">5</option>
@@ -12,6 +12,7 @@
         <option value="1">1</option>
         <option value="0">0</option>
       </select>
+      <br>
       <br>
       <label for="description">Opis: </label><br>
       <textarea id="description" class="descriptionInput" v-model="Opinion.description"></textarea><br>
@@ -68,9 +69,10 @@ export default {
 </script>
 
 <style scoped>
+
 .descriptionInput {
-  width: 500px;
-  height: 200px;
+  width: 30%;
+  height: 150px;
   resize: none;
 }
 </style>

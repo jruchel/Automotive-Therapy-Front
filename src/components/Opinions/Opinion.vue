@@ -36,10 +36,6 @@ export default {
   width: 25px;
 }
 
-.descriptionInput {
-  width: 90%;
-  height: 100px;
-  resize: none;
-}
+
 
 </style>

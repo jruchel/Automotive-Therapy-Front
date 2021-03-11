@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Footer class="content"/>
     <Navigation class="content" v-on:logout="logout"></Navigation>
+    <Footer style="visibility: hidden"/>
   </div>
 </template>
 
@@ -28,7 +28,9 @@ export default {
   provide() {
     return {
       auth: this.auth,
-      serverUrl: "https://automotive-therapy.herokuapp.com",
+      images: {
+        githubIcon: require('./assets/github.png')
+      }
     }
   },
   data() {
@@ -43,7 +45,7 @@ export default {
       this.sendRequest("/security/logout", "POST", "")
     },
     serverUrl() {
-      return "https://automotive-therapy.herokuapp.com"
+      return "http://localhost:8081"
     },
     createURL(endpoint) {
       return this.serverUrl() + endpoint
@@ -82,7 +84,7 @@ body, html {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 1080px;
 }
 
 body {
@@ -109,7 +111,7 @@ textarea {
   border-radius: 15px;
   border: 0;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
-  height: 150px;
+  height: 100%;
 }
 
 button {
@@ -124,7 +126,8 @@ button {
 }
 
 .content {
-  max-width: 500px;
+  max-width: 100%;
   margin: auto;
+  text-align: center;
 }
 </style>

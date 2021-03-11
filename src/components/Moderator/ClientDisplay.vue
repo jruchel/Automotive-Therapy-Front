@@ -27,7 +27,7 @@
             <button @click="handleOrder(order, '/moderator/orders/reject')">Odrzuć</button>
           </div>
           <div id="options2" v-if="status === 'accepted'">
-            <button @click="handleOrder(order, '/moderator/orders/complete')">Oznacz jako wykonane</button>
+            <button @click="handleOrder(order, '/moderator/orders/complete')">Zakończ</button>
           </div>
         </div>
       </div>

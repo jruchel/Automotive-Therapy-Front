@@ -23,9 +23,6 @@ const router = new Router({
 })
 
 new Vue({
-    provide: {
-        "serverUrl": "https://automotive-therapy.herokuapp.com"
-    },
     router,
     render: h => h(App),
 }).$mount('#app')
