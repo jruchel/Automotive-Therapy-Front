@@ -28,11 +28,7 @@ export default {
   name: "OpinionForm",
   methods: {
     validateInput() {
-      let description = this.Opinion.description
       let rating = this.Opinion.stars
-      if (description === "" || description.length < 5) {
-        return "Opis nie może być pusty."
-      }
       if (rating < 0 || rating > 5) {
         return "Ocena musi się mieścić między 0 a 5"
       }

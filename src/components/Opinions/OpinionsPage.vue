@@ -1,13 +1,11 @@
 <template>
   <div>
     <h2 style="text-align: center" v-if="this.opinions.length > 0">Opinie naszych klientów: </h2><br>
-    <table>
-      <tr>
-        <td v-for="opinion in opinions" v-bind:key="opinion.id">
+
+        <div class="opinions" v-for="opinion in opinions" v-bind:key="opinion.id">
           <Opinion class="opinion" :Opinion="opinion"/>
-        </td>
-      </tr>
-    </table>
+        </div>
+
     <h2 style="text-align: center">Wyślij nam swoją opinię:</h2><br>
     <OpinionForm v-on:opinion-sent="getOpinions"/>
   </div>
@@ -45,9 +43,15 @@ export default {
 </script>
 
 <style scoped>
+
+.opinions{
+  display: inline-table;
+  text-align: center;
+}
 .opinion {
   margin: 10px 10px 10px 10px;
-  width: 175px;
-
+  resize: none;
+  width: 100%;
 }
+
 </style>

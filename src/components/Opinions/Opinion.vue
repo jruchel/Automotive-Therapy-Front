@@ -5,7 +5,7 @@
     <label for="rating"> Ocena: </label>
     <input class="ratingInput" id="rating" type="text" readonly="readonly" v-model="Opinion.stars"><br>
     <label for="description">Opis: </label><br>
-    <textarea id="description" class="descriptionInput" v-model="Opinion.description" readonly="readonly"></textarea>
+    <textarea id="description" class="desctiption" v-model="Opinion.description" readonly="readonly"></textarea>
   </div>
 </template>
 
@@ -30,6 +30,12 @@ export default {
 
 .nameInput {
   width: 50px;
+}
+
+.desctiption {
+  resize: none;
+  height: 100%;
+  width: 85%;
 }
 
 .ratingInput {
