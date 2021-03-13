@@ -6,11 +6,13 @@ import Order from './components/Orders/OrderPage.vue'
 import Login from './components/Login/LoginPage.vue'
 import RespondOrders from "@/components/Moderator/RespondOrders";
 import LandingPage from "@/components/LandingPage";
+import Charts from "@/components/Charts/Charts";
 
 Vue.config.productionTip = false
 Vue.use(Router)
 
 const routes = [
+    {path: '/charts', component: Charts},
     {path: '/opinion', component: Opinion},
     {path: '/order', component: Order},
     {path: '/login', component: Login},

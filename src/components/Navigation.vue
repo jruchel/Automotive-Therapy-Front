@@ -5,6 +5,7 @@
       <router-link :class="{active: isOpinion}" to="/opinion">Opinie</router-link>
       <router-link :class="{active: isLogin}" v-if="!auth.loggedIn" to="/login">Dla pracowników</router-link>
       <router-link v-if="auth.loggedIn" :class="{active: isOrders}" to="/orders">Zlecenia</router-link>
+      <router-link v-if="auth.loggedIn" to="/charts">Statystyki</router-link>
       <router-link v-if="auth.loggedIn" to="/home" v-on:click.native="$emit('logout')">Wyloguj</router-link>
       <div class="contact">
         <a href="https://github.com/jruchel">Github</a>
@@ -23,6 +24,9 @@ export default {
     setCurrentPage(page) {
       this.clearAll()
       switch (page) {
+        case 'charts':
+          this.isCharts = true;
+          break;
         case 'order' :
           this.isOrder = true;
           break;
@@ -44,10 +48,12 @@ export default {
       this.isLogin = false;
       this.isOpinion = false;
       this.isOrders = false;
+      this.isCharts = false
     }
   },
   data() {
     return {
+      isCharts: false,
       isOrder: false,
       isOpinion: false,
       isLogin: false,
