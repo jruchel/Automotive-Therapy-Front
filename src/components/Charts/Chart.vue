@@ -5,9 +5,12 @@ import EventBus from "@/event-bus";
 
 export default {
   extends: Pie,
+  props: ["endpoint"],
   data: () => ({
-    data: {},
-    options: {}
+    data: {
+    },
+    options: {
+    }
   }),
   computed: {
     chartData: function () {
@@ -19,7 +22,7 @@ export default {
       EventBus.$emit(event, args)
     },
     getData() {
-      this.emit("send-http-request", "/data/orders", "GET", "", this.processResponse)
+      this.emit("send-http-request", this.endpoint, "GET", "", this.processResponse)
     },
     processResponse(response) {
       response = JSON.parse(response)

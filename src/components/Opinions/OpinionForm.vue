@@ -10,7 +10,6 @@
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
-        <option value="0">0</option>
       </select>
       <br>
       <br>
@@ -29,8 +28,8 @@ export default {
   methods: {
     validateInput() {
       let rating = this.Opinion.stars
-      if (rating < 0 || rating > 5) {
-        return "Ocena musi się mieścić między 0 a 5"
+      if (rating < 1 || rating > 5) {
+        return "Ocena musi się mieścić między 1 a 5"
       }
       return true
     },

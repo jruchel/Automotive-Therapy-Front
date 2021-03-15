@@ -1,16 +1,15 @@
 <template>
   <div >
-    <OpinionsChart></OpinionsChart>
-    <OrdersChart></OrdersChart>
+    <Chart endpoint="/data/orders"></Chart>
+    <Chart endpoint="/data/opinions"></Chart>
   </div>
 </template>
 
 <script>
-import OpinionsChart from "@/components/Charts/OpinionsChart";
-import OrdersChart from "@/components/Charts/OrdersChart";
+import Chart from "@/components/Charts/Chart"
 export default {
   name: "Charts",
-  components: {OrdersChart, OpinionsChart}
+  components: {Chart}
 }
 </script>
 
