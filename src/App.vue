@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div id="app">
     <Navigation class="content" v-on:logout="logout"></Navigation>
+    <router-view class="content"/>
     <Footer style="visibility: hidden"/>
   </div>
 </template>
