@@ -1,5 +1,6 @@
 <template>
-  <div >
+  <div>
+    <h2>Statystyki</h2>
     <Chart endpoint="/data/orders"></Chart>
     <Chart endpoint="/data/opinions"></Chart>
   </div>

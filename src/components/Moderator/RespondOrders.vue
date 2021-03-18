@@ -1,10 +1,13 @@
 <template>
   <div>
+    <h2>Zlecenia klientów</h2>
     <div v-if="this.auth.loggedIn" id="loggedin" v-on:click="getOrders">
-      <select v-model="selectedOption">
-        <option value="pending">Nieodczytane</option>
-        <option value="accepted">Nieukończone</option>
-      </select>
+     <div class="box">
+       <select class="box" v-model="selectedOption">
+         <option value="pending">Nieodczytane</option>
+         <option value="accepted">Nieukończone</option>
+       </select>
+     </div>
       <div v-if="clients.length <= 0">
         <h3>Brak zleceń</h3>
       </div>
