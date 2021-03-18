@@ -7,10 +7,8 @@ export default {
   extends: Pie,
   props: ["endpoint"],
   data: () => ({
-    data: {
-    },
-    options: {
-    }
+    data: {},
+    options: {}
   }),
   computed: {
     chartData: function () {
