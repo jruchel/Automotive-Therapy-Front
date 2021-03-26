@@ -100,11 +100,24 @@ body {
 }
 
 input {
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
   padding: 15px;
   border-radius: 10px;
   border: 0;
 }
+
+select {
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
+  text-align-last: center;
+  background: lightslategrey;
+  height: 35px;
+  color: #ffffff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  margin: 5px 5px 5px 0px;
+}
+
 
 textarea {
   width: 100%;
@@ -112,7 +125,7 @@ textarea {
   padding: 15px;
   border-radius: 15px;
   border: 0;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
   height: 100%;
 }
 
@@ -125,6 +138,7 @@ button {
   border: 0;
   border-radius: 10px;
   margin: 5px 5px 5px 0px;
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
 }
 
 .content {
